@@ -10,32 +10,31 @@
         body{
             background-color:#e9ecef;
             font-family:Arial, sans-serif;
+            text-align: center;
+            align-content: text-center;
+            
+            
+            background-image: url(https://img.freepik.com/free-vector/bright-geometric-shape-background_1409-872.jpg?semt=ais_hybrid&w=740&q=80);
         }
 
         .top-bar{
             background-color:#9b7fc9;
             height:70px;
-            border-bottom:4px solid black;
+            border-bottom:4px solid rgb(255, 255, 255);
             display:flex;
             align-items:center;
             padding:0 30px;
         }
 
-        .nav-left span{
-            color:white;
-            font-size:18px;
-            margin-right:25px;
-        }
-
         .title{
-            color:white;
+            color:rgb(233, 158, 249);
             font-size:22px;
             margin:auto;
             font-weight:bold;
         }
 
     
-        .locator-container {
+        .store-container {
             background-color: white;
             padding: 20px;
             border-radius: 15px;
@@ -46,13 +45,13 @@
             margin-bottom: 20px;
         }
 
-        .locator-container h2 {
+        .store-container h2 {
             margin-bottom: 10px;
             font-size: 20px;
             color: #4b2e83;
         }
 
-        .locator-container input[type="number"] {
+        .store-container input[type="number"] {
             width: 100%;
             padding: 8px;
             border-radius: 8px;
@@ -62,7 +61,7 @@
             font-size: 14px;
         }
 
-        .locator-container button {
+        .store-container button {
             width: 100%;
             padding: 8px;
             border-radius: 8px;
@@ -74,8 +73,18 @@
             font-size: 14px;
         }
 
-        .locator-container button:hover {
-            background-color: #218838;
+        .store-container button:hover {
+            background-color: #ffffff;
+        }
+
+         .store-container a {
+            color: #4b2e83;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .store-container a:hover {
+            text-decoration: underline;
         }
 
         .result {
@@ -85,46 +94,47 @@
             font-weight: bold;
         }
 
-        summary {
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 14px;
+        script {
+            text-align: center;
+
         }
 
-        #message {
-            margin-top: 5px;
-            font-style: italic;
-            color: #555;
-            font-size: 13px;
+        .budget-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
         }
-
-        .locator-container a {
-            color: #4b2e83;
-            text-decoration: none;
-            font-size: 13px;
+       
+        .discount {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            
         }
-
-        .locator-container a:hover {
-            text-decoration: underline;
-        }
-
-        img {
-            margin-top: 10px;
-        }
-
 
  </style>
 
 </head>
 <body>
 
+
     <div class="main-box">
 
     <div class="top-bar">
 
         <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Shop</a>
+            <a>Home</a>
+            <a>Shop</a>
         </div>
 
         <div class="title">
@@ -133,96 +143,52 @@
 
     </div>
     
-<center>
 
-    <div class="budget" style="margin-top:20px;">
-    <h2>Finding the best laptop brand for you?</h2>
+    <div class="titletwo-container" >
+    <h2 >Finding the best laptop brand for you?</h2>
             <details ontoggle="showInstructions()">
                 <summary><u>Instructions</u></summary>
                 <p id="message">Type your budget below and click "Find Product".</p>
             </details>
         </div>
+       </div>
     <br>
     <br>
 
-    <input type="number" class="form-control mb-3" id="budget" placeholder="Enter your budget">
-            <button type="button" class="btn btn-success w-100" onclick="FindProductResult()">Find Product</button>
-
-            <div class="result" id="result"></div>
-            
-        </div>
+    
+        <div class="budget-container" >
+        <form>
+        <label >Enter Budget:</label>
+            <input type="number" class="form-control mb-3" id="budget" placeholder="Enter your budget">      
+        <button style="background-color: #d8a6e1;" type="submit" class="btn btn-success" ontoggle="result()">Find Product</button>
+    </form>
     </div>
 
-
     </div>
-</center>
 
-<script>
-    function FindProductResult() {
-        var budget = document.getElementById("budget").value;
-        budget = Number(budget);
-        budget = Math.round(budget);
-
-        var result = document.getElementById("result");
-
-
-        result.innerHTML = "";
-
-        if (budget <= 0 || isNaN(budget)) {
-            result.innerHTML = "❌ Please enter a valid budget!";
-            return;
-        }
-
- 
-        var acer = 400;
-        var asus = 600;
-        var dell = 800;
-        var hp = 1000;
-        var apple = 1500;
-
-
-        if (budget >= apple) {
-            result.innerHTML = "✅ We suggest <b>Apple</b> with a price of <b>$" + apple + "</b><br>";
-            result.innerHTML += '<img src="https://www.apple.com/newsroom/images/product/mac/standard/Apple_16-inch-MacBook-Pro_111319_big.jpg.large.jpg" width="200">';
-        }
-
-        if (budget < apple && budget >= hp) {
-            result.innerHTML = "✅ We suggest <b>HP</b> with a price of <b>$" + hp + "</b><br>";
-            result.innerHTML += '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCJAWOOe1idBSUIS03WYTy2RiISHw-eOdd5Q&s" width="200">';
-        }
-
-        if (budget < hp && budget >= dell) {
-            result.innerHTML = "✅ We suggest <b>Dell</b> with a price of <b>$" + dell + "</b><br>";
-            result.innerHTML += '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz5-nzFwjnWAO1PsMSKb88EjgDIqtm57dNNQ&s" width="200">';
-        }
-
-        if (budget < dell && budget >= asus) {
-            result.innerHTML = "✅ We suggest <b>Asus</b> with a price of <b>$" + asus + "</b><br>";
-            result.innerHTML += '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMWEL_L6Xbe82f30hFVBJE3Ip64isWSpYEmQ&s" width="200">';
-        }
-
-        if (budget < asus && budget >= acer) {
-            result.innerHTML = "✅ We suggest <b>Acer</b> with a price of <b>$" + acer + "</b><br>";
-            result.innerHTML += '<img src="https://ecommerce.datablitz.com.ph/cdn/shop/files/bfbdfbfdfbd_800x.jpg?v=1713751451" width="200">';
-        }
-
-        if (budget < acer) {
-            result.innerHTML = "😔 No laptops available within your budget.";
-        }
-    }
-</script>
-
-<center>
-    <div class="locator-container" style="margin-top:20px;">
+     <div class="store-container" style="margin-top:20px;">
     <h2>Store Locator</h2>
-    <p>Click the button to see nearby stores:</p>
-    <button type="button" class="btn btn-success w-100" onclick="ShowStores()">Show Stores</button>
+    <p>Nearby stores:</p>
+        <p>SM Megamall,SM MOA, </p>
     <div class="result" id="stores"></div>
 </div>
 
-</center>
+    <div class="discount" style="margin-top:20px;">
+        <h2>Discount</h2>
+    <button style="background-color: #d8a6e1;" type="button" class="btn btn-success w-100" onclick="ShowDiscount()">Show discount price</button>
+    <div class="result" id="disc"></div>
+
+    </div>
 
 
-        
+    <script>
+        function
+
+    </script>
+
+
+
+
+      
 </body>
 </html>
